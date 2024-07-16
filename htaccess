@@ -1,0 +1,12 @@
+
+# HTID:20088975: DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES BELOW
+php_value display_errors 1
+# DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES ABOVE HTID:20088975:
+
+RewriteEngine On
+RewriteCond %{HTTP:Authorization} ^(.*)
+RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
+
+
+RewriteRule ^pay/gateway/(.*)$ /pay/gateway_return.php?gateway_id=$1 [QSA,L]
+RewriteRule ^pay/withdraw/gateway/(.*)$ /pay/withdraw/gateway_return.php?gateway_id=$1 [QSA,L]
